@@ -13,7 +13,7 @@ describe('Order Book', () => {
       expect(updatedBook).to.deep.equal([{ type: 'sell', quantity: 10, price: 6150 }])
     })
 
-    xit('adds an order to the book when the book has orders of the corresponding type (i.e. a sell with no buys)', () => {
+    it('adds an order to the book when the book has orders of only the corresponding type (i.e. a sell with no buys)', () => {
       const existingBook = [{ type: 'sell', quantity: 10, price: 6150 }]
       const incomingOrder = { type: 'sell', quantity: 12, price: 6000 }
 
