@@ -46,7 +46,7 @@ describe('Order Book', () => {
       expect(updatedBook).to.deep.equal([])
     })
 
-    xit('fulfills an order and reduces the matching order when the book contains a matching order of a larger quantity', () => {
+    it('fulfills an order and reduces the matching order when the book contains a matching order of a larger quantity', () => {
       const existingBook = [{ type: 'buy', quantity: 15, price: 6150 }]
       const incomingOrder = { type: 'sell', quantity: 10, price: 6150 }
 
