@@ -25,7 +25,7 @@ describe('Order Book', () => {
       ])
     })
 
-    xit('adds an order to the book when the book has a corresponding order type but it does not match', () => {
+    it('adds an order to the book when the book has a corresponding order type but it does not match', () => {
       const existingBook = [{ type: 'buy', quantity: 10, price: 6150 }]
       const incomingOrder = { type: 'sell', quantity: 12, price: 6000 }
 

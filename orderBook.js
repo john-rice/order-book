@@ -1,11 +1,18 @@
-function getUpdatedBook (existingBook, incomingOrder) {
-  let updatedBook = [] 
-  let correspondingOrders = existingBook.filter( (item) => {
-    return item.type === incomingOrder.type
+function getExistingOrdersWhichCanFulfillIncomingOrder(existingBook, incomingOrder) {
+  let matches = existingBook.filter( (item) => {
+    return item.type !== incomingOrder.type && item.price === incomingOrder.price && item.quanity === incomingOrder.quanity
   })
 
-  // if the number of orders with the same type as the incoming type is the same as the number of all existing orders
-  if (correspondingOrders.length === existingBook.length) {
+  return matches
+}
+
+function getUpdatedBook (existingBook, incomingOrder) {
+  let updatedBook = [] 
+  
+  let matchingOrders = getExistingOrdersWhichCanFulfillIncomingOrder(existingBook, incomingOrder)
+
+  // if there are no existing orders that can fulfull the incoming order, add the new order to the book
+  if (!matchingOrders.length) {
     updatedBook = existingBook.concat(incomingOrder)
   }
 
